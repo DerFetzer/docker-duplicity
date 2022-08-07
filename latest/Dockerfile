@@ -16,6 +16,7 @@ RUN set -x \
         openssl \
         python3 \
         py3-paramiko \
+        py3-setuptools \
         rsync \
  && update-ca-certificates
 
@@ -37,7 +38,6 @@ RUN set -x \
     # Install Python dependencies.
  && pipenv install --system --deploy \
     # Clean up
- && python3 -m pip uninstall -y pip pipenv setuptools \
  && apk del --purge .build-deps
 
 RUN set -x \

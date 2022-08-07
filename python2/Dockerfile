@@ -16,6 +16,7 @@ RUN set -x \
         openssh \
         openssl \
         python2 \
+        py2-setuptools \
         rsync \
  && update-ca-certificates
 
@@ -38,7 +39,6 @@ RUN set -x \
     # Install Python dependencies.
  && pipenv install --system --deploy \
     # Clean up
- && python2 -m pip uninstall -y pip pipenv setuptools \
  && apk del --purge .build-deps
 
 RUN set -x \
